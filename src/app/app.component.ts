@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'rest-countries-api';
+  public Theme = Theme;
   theme: Observable<Theme>;
   private themeService: ThemeService;
 
@@ -21,9 +22,7 @@ export class AppComponent implements OnInit {
     this.theme = this.themeService.mode$;
   }
 
-  ngOnInit(): void {
-    this.theme = this.themeService.mode$;
-  }
+  ngOnInit(): void {}
 
   toggleTheme() {
     this.themeService.toggleMode();
