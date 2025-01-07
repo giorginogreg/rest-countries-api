@@ -24,8 +24,4 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  toggleTheme() {
-    this.themeService.toggleMode();
-  }
 }

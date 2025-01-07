@@ -1,5 +1,5 @@
 <div [ngClass]="theme | async" class="app">
-    <button (click)="toggleTheme()">{{( theme | async ) === Theme.light ? 'Dark' : 'Light'}} Mode</button>
+    
     <app-navbar></app-navbar>
     <router-outlet />
 </div>
