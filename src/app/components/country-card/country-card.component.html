@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="country" [routerLink]="['/' + country.alpha2Code]" routerLinkActive="router-link-active">
     <img [src]="country.flag">
     <h3>{{country.name}}</h3>
     <p>

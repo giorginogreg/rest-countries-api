@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   countries$: any;
   constructor() {
     this.countries$ = this.apiService.getAllCountries();
+    //this.apiService.getAllCountries().subscribe((res) => console.log(res));
   }
   ngOnInit(): void {}
 }
