@@ -1,3 +1,24 @@
 <div *ngIf="country$ | async; let country">
+    <button>
+        <fa-icon [icon]="faLeftLong" /> Back
+    </button>
+
     <img [src]="country.flags.png" alt="">
+<h3>{{country.name.common}}</h3>
+<p><strong>Native Name: </strong> {{ getNativeName(country.name.nativeName) }}</p>
+<p><strong>Population: </strong> {{country.population | number: '1.0'}}</p>
+<p><strong>Region: </strong> {{country.region}}</p>
+<p><strong>Subregion: </strong> {{country.subregion}}</p>
+<p><strong>Capital: </strong> {{country.capital}}</p>
+<p><strong>Top Level Domain: </strong> {{country.tld}}</p>
+<p><strong>Currencies: </strong> {{ displayCurrencies(country.currencies) }}</p>
+<p><strong>Languages: </strong> {{ displayLanguages(country.languages) }}</p>
+<div *ngIf="borderCountries$ | async; let borderCountries">
+    <p><strong>Border countries: </strong> </p>
+    <div *ngFor="let borderCountry of borderCountries">
+        {{borderCountry.name.common}}
+    </div>
+
+</div>
+
 </div>

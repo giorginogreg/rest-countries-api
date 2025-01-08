@@ -26,4 +26,10 @@ export class ApiService {
       .get<Country[]>(`${this.apiUrl}/${cca2}`)
       .pipe(map(([res]) => res));
   }
+
+  getNameFromCountries(cca2: string[]): Observable<Partial<Country[]>> {
+    return this.http.get<Partial<Country[]>>(
+      `${this.apiUrl}?codes=${cca2.join(',')}&fields=name`
+    );
+  }
 }
