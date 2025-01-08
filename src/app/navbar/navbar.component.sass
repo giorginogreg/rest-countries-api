@@ -6,13 +6,19 @@ nav
 
 @media (min-width: 376px) 
     nav
-        padding: 1.75rem 2rem
+        padding: 1.75rem 5rem
 
 h2
-    font-size: 24px
+    font-size: 20px
+
+div
+    font-weight: 600
+
+.flex-container 
+    display: flex
 
 :host-context(.light) nav
-    background-color: var(--l-element)
+    background-color: var(--d-elems)
 
 :host-context(.dark) nav
-    background-color: var(--d-element)
+    background-color: var(--l-elems)
