@@ -3,10 +3,11 @@ import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
 import { Country } from '../../types/api';
 import { CommonModule } from '@angular/common';
+import { CountryCardComponent } from '../../components/country-card/country-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, CountryCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.sass',
 })
