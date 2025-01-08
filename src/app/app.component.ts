@@ -4,6 +4,7 @@ import { Theme, ThemeService } from './services/theme.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 export class AppComponent implements OnInit {
   title = 'rest-countries-api';
   public Theme = Theme;
+  private themeService: ThemeService = inject(ThemeService);
+  private apiService: ApiService = inject(ApiService);
   theme: Observable<Theme>;
-  private themeService: ThemeService;
 
   constructor() {
-    this.themeService = inject(ThemeService);
     this.theme = this.themeService.mode$;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService
+      .getAllCountries()
+      .subscribe((res: any) => console.log(res.default));
+  }
 }
