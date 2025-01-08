@@ -23,13 +23,26 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": [
+                  "mixed-decls",
+                  "color-functions",
+                  "global-builtin",
+                  "import"
+                ]
+              }
+            },
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.sass"],
+            "styles": [
+              "src/styles.sass",
+              "node_modules/bootstrap/scss/bootstrap.scss"
+            ],
             "scripts": []
           },
           "configurations": {
