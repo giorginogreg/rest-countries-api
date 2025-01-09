@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap')
-    
+
 :root
+    /** elements in dark mode (black background, white text) **/
     --d-elems: hsl(0, 0%, 100%)
     --d-bg: hsl(207, 26%, 17%)
-    
+    --d-bg-2: hsl(209, 23%, 22%)
+
+    /** elements in light mode **/
+    --l-bg: hsl(0, 0%, 98%)
     --l-text: hsl(200, 15%, 8%)
     --l-input: hsl(0, 0%, 52%)
-    --l-bg: hsl(0, 0%, 98%)
-    --l-elems: hsl(209, 23%, 22%)
 
 *
     margin: 0
@@ -16,5 +18,5 @@
 body
     font-family: 'Nunito', 'Courier New', Courier, monospace
 
-.shadow 
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06)
+.shadow
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06) 
