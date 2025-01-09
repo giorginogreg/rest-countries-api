@@ -5,24 +5,26 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [FontAwesomeModule, CommonModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.sass',
+    selector: 'app-navbar',
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule, RouterModule],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.sass',
 })
 export class NavbarComponent {
-  private themeService: ThemeService;
-  theme: Observable<Theme>;
-  faMoon = faMoon;
-  Theme = Theme;
-  constructor() {
-    this.themeService = inject(ThemeService);
-    this.theme = this.themeService.mode$;
-  }
-  toggleTheme() {
-    this.themeService.toggleMode();
-  }
+    private themeService: ThemeService;
+    theme: Observable<Theme>;
+    faMoon = faMoon;
+    Theme = Theme;
+
+    constructor() {
+        this.themeService = inject(ThemeService);
+        this.theme = this.themeService.mode$;
+    }
+    toggleTheme() {
+        this.themeService.toggleMode();
+    }
 }
