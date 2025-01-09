@@ -1,0 +1,29 @@
+.dropdown
+    margin-top: 1rem
+    padding: 1rem
+    border-radius: 0.25rem
+    @media (min-width: 376px) 
+        margin-top: 0
+    
+    &-label
+        display: flex
+        justify-content: space-between
+    &-opts
+        list-style: none
+        border-radius: 0.25rem
+        position: absolute
+        padding: 0.5rem
+        top: 110%
+        left: 0
+        z-index: 10
+        width: 100%
+        li 
+            padding: 0.5rem
+
+:host-context(.light) 
+    .dropdown, .dropdown-opts
+        background-color: var(--l-bg)
+
+:host-context(.dark) 
+    .dropdown, .dropdown-opts
+        background-color: var(--d-bg-2)
