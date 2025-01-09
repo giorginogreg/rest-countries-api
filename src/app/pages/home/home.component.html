@@ -1,3 +1,7 @@
+<div class="country-filters">
+    <input type="text" name="country-filter" id="" placeholder="Search for a country..." [(ngModel)]="searchFilter">
+</div>
+
 <div class="country-cards">
-    <app-country-card *ngFor="let country of (countries$ | async)" [country]="country" ></app-country-card>
+    <app-country-card *ngFor="let country of countries" [country]="country" ></app-country-card>
 </div>
