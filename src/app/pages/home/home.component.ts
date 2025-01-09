@@ -6,6 +6,9 @@ import { CountryCardComponent } from '../../components/country-card/country-card
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { DropdownComponent } from '../../components/dropdown/dropdown.component';
+
+const REGION_OPTIONS = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
 @Component({
     selector: 'app-home',
@@ -14,6 +17,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
         CountryCardComponent,
         FormsModule,
         FontAwesomeModule,
+        DropdownComponent,
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.sass',
@@ -21,13 +25,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 export class HomeComponent implements OnInit {
     apiService = inject(ApiService);
 
-    countries$: any;
-    searchFilter: string;
     source: Country[];
+    searchFilter?: string;
+    regionFilter: string;
+    regionOptions = REGION_OPTIONS;
 
     faSearch = faSearch;
     constructor() {
         this.searchFilter = '';
+        this.regionFilter = '';
         this.source = [];
         this.apiService
             .getAllCountries()
@@ -38,13 +44,19 @@ export class HomeComponent implements OnInit {
 
     get countries() {
         return this.source
-            ? this.source.filter((country) =>
-                  this.searchFilter
-                      ? country.name
-                            .toLocaleLowerCase()
-                            .includes(this.searchFilter)
-                      : country
-              )
+            ? this.source
+                  .filter((country) =>
+                      this.searchFilter
+                          ? country.name
+                                .toLocaleLowerCase()
+                                .includes(this.searchFilter)
+                          : country
+                  )
+                  .filter((country) =>
+                      this.regionFilter
+                          ? country.region.includes(this.regionFilter)
+                          : country
+                  )
             : this.source;
     }
 }
