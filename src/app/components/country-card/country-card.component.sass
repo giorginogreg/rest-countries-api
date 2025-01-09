@@ -1,0 +1,29 @@
+.country-card
+    overflow: hidden // For making the flag goes under, so we can see the border rounded of the card
+    padding: 10px
+    border-radius: 25px
+
+    h2
+        font-size: 18px
+        padding-bottom: 0.5rem
+    
+    p
+        padding: 0.25rem 0
+    &-info 
+        padding: 2rem 1.5rem 2.5rem
+
+    &-img
+        position: relative
+        height: 170px
+        img
+            position: absolute
+            width: 100%
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+
+:host-context(.light) nav
+    background-color: var(--d-elems)
+
+:host-context(.dark) nav
+    background-color: var(--d-bg-2)
