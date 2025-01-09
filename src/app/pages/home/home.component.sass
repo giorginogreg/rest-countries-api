@@ -6,3 +6,34 @@
         padding: 0 5rem
         grid-template-columns: repeat(4, 1fr)
         column-gap: 1rem
+
+.country-filters
+    margin: 2rem 1rem
+    @media (min-width: 376px) 
+        margin: 2rem 5rem
+
+.search-filter
+    input
+        width: 90%
+        margin-left: 10px
+        border: none
+        background-color: inherit
+    font-size: 1rem
+    padding: 1rem
+    border-radius: 0.25rem
+    @media (min-width: 376px) 
+        width: 33%
+
+:host-context(.light) .search-filter
+    background-color: var(--l-bg)
+    color: var(--l-elems)
+    input::placeholder 
+        color: var(--l-input)
+
+:host-context(.dark) .search-filter
+    background-color: var(--d-bg-2)
+    input
+        color: var(--d-elems)
+
+    input::placeholder
+        color: var(--l-input)

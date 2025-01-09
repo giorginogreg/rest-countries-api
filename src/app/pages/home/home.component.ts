@@ -4,10 +4,17 @@ import { Country } from '../../types/api';
 import { CommonModule } from '@angular/common';
 import { CountryCardComponent } from '../../components/country-card/country-card.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, CountryCardComponent, FormsModule],
+    imports: [
+        CommonModule,
+        CountryCardComponent,
+        FormsModule,
+        FontAwesomeModule,
+    ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.sass',
 })
@@ -17,6 +24,8 @@ export class HomeComponent implements OnInit {
     countries$: any;
     searchFilter: string;
     source: Country[];
+
+    faSearch = faSearch;
     constructor() {
         this.searchFilter = '';
         this.source = [];

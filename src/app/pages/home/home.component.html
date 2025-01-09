@@ -1,5 +1,9 @@
 <div class="country-filters">
-    <input type="text" name="country-filter" id="" placeholder="Search for a country..." [(ngModel)]="searchFilter">
+    <div class="search-filter">
+        <fa-icon [icon]="faSearch"/>
+        <input type="text" name="country-filter" id="" placeholder="Search for a country..." [(ngModel)]="searchFilter">
+
+    </div>
 </div>
 
 <div class="country-cards">
